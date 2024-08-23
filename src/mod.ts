@@ -3,7 +3,9 @@
  *
  * edge-tts is a package that allows you to use Microsoft Edge's online text-to-speech service from within your JS code. Zero dependencies and you can use it anywhere! (Browser or Node or Deno or Bun or any modern JS environment)
  * Heavily inspired by [rany2/edge-tts](https://github.com/rany2/edge-tts) and [SchneeHertz/node-edge-tts](https://github.com/SchneeHertz/node-edge-tts)
- *
+ */
+
+/**
  * @example
  *
  * ```typescript
