@@ -1,6 +1,6 @@
 import { connect } from "./connect.ts";
+import type { AudioMetadata, ParseSubtitleOptions } from "./subtitle.ts";
 import { parseSubtitle } from "./subtitle.ts";
-import { AudioMetadata, ParseSubtitleOptions } from "./subtitle.ts";
 
 type GenerateOptions = {
   text: string;
