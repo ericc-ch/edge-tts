@@ -71,7 +71,7 @@ export async function generate(
       if (message.data instanceof Blob) {
         const separator = "Path:audio\r\n";
 
-        const bytes = await message.data.bytes();
+        const bytes = new Uint8Array(await message.data.arrayBuffer());
         const binaryString = new TextDecoder().decode(bytes);
 
         const index = binaryString.indexOf(separator) + separator.length;
