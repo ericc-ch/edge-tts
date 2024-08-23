@@ -68,10 +68,12 @@ export async function generate(
   socket.addEventListener(
     "message",
     async (message: MessageEvent<string | Blob>) => {
-      if (message.data instanceof Blob) {
+      if (typeof message.data !== "string") {
+        const blob = new Blob([message.data]);
+
         const separator = "Path:audio\r\n";
 
-        const bytes = new Uint8Array(await message.data.arrayBuffer());
+        const bytes = new Uint8Array(await blob.arrayBuffer());
         const binaryString = new TextDecoder().decode(bytes);
 
         const index = binaryString.indexOf(separator) + separator.length;
