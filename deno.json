@@ -1,0 +1,9 @@
+{
+  "name": "@ericc/edge-tts",
+  "publish": {
+    "exclude": [".vscode"]
+  },
+  "tasks": {
+    "test": "deno test --allow-net tests"
+  }
+}
