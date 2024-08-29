@@ -1,12 +1,8 @@
 /**
- * @module
  *
- * edge-tts is a package that allows you to use Microsoft Edge's online text-to-speech service from within your JS code. Zero dependencies and you can use it anywhere! (Browser or Node or Deno or Bun or any modern JS environment)
+ * edge-tts is a package that allows you to use Microsoft Edge's online text-to-speech service from within your JS code.
+ * Zero dependencies and you can use it anywhere! (Browser or Node or Deno or Bun or any modern JS environment)
  * Heavily inspired by [rany2/edge-tts](https://github.com/rany2/edge-tts) and [SchneeHertz/node-edge-tts](https://github.com/SchneeHertz/node-edge-tts)
- */
-
-/**
- * @example
  *
  * ```typescript
  * // Web
@@ -40,24 +36,9 @@
  *
  * // Access subtitle data
  * console.log(subtitle);
- * ```
+ * ``
  *
- * ```typescript
- * // Deno environment
- * import { generate } from './yourModule.ts';
- * const { audio, subtitle } = await generate({
- *   text: "Hello, world!",
- *   voice: "en-US-JennyNeural",
- *   language: "en-US",
- * });
- *
- * // Save the audio Blob to a file
- * const bytes = await audio.bytes()
- * await Deno.writeFile('output.mp3', bytes);
- *
- * // Access subtitle data
- * console.log(subtitle);
- * ```
+ * @module`
  */
 
 export * from "./generate.ts";

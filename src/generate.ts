@@ -2,14 +2,59 @@ import { connect } from "./connect.ts";
 import type { AudioMetadata, ParseSubtitleOptions } from "./subtitle.ts";
 import { parseSubtitle } from "./subtitle.ts";
 
+/**
+ * Options that will be sent alongside the websocket request
+ */
 type GenerateOptions = {
+  /** The text that will be generated as audio */
   text: string;
+
+  /**
+   * Voice persona used to read the message.
+   * Please refer to [Language and voice support for the Speech service](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts)
+   *
+   * Defaults to `"en-US-AvaNeural"`
+   */
   voice?: string;
+
+  /**
+   * Language of the message.
+   * Please refer to [Language and voice support for the Speech service](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts)
+   *
+   * Defaults to `"en-US"`
+   */
   language?: string;
 
+  /**
+   * Format of the audio output.
+   * Please refer to [SpeechSynthesisOutputFormat Enum](https://learn.microsoft.com/en-us/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet)
+   *
+   * Defaults to `"audio-24khz-96kbitrate-mono-mp3"`
+   */
   outputFormat?: string;
+
+  /**
+   * Indicates the speaking rate of the text.
+   * Please refer to [Customize voice and sound with SSML](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup-voice#adjust-prosody)
+   *
+   * Defaults to `"default"`
+   */
   rate?: string;
+
+  /**
+   * Indicates the baseline pitch for the text.
+   * Please refer to [Customize voice and sound with SSML](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup-voice#adjust-prosody)
+   *
+   * Defaults to `"default"`
+   */
   pitch?: string;
+
+  /**
+   * Indicates the volume level of the speaking voice.
+   * Please refer to [Customize voice and sound with SSML](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup-voice#adjust-prosody)
+   *
+   * Defaults to `"default"`
+   */
   volume?: string;
 
   subtitle?: Omit<ParseSubtitleOptions, "metadata">;
@@ -20,6 +65,12 @@ type GenerateResult = {
   subtitle: ReturnType<typeof parseSubtitle>;
 };
 
+/**
+ * Asynchronously generates audio and subtitle data based on the provided options.
+ *
+ * @param options - The options for generating audio and subtitle data.
+ * @return  A promise that resolves with the generated audio and subtitle data.
+ */
 export async function generate(
   options: GenerateOptions
 ): Promise<GenerateResult> {

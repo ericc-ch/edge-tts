@@ -9,6 +9,13 @@ const url = new URL(
 
 url.search = searchParams.toString();
 
+/**
+ *
+ * Used to construct the WebSocket connection to MS Edge TTS Service
+ *
+ * @param outputFormat Please refer to {@linkcode GenerateOptions.outputFormat}
+ * @returns The websocket connection instance
+ */
 export function connect(outputFormat: string) {
   const ws = new WebSocket(url.toString());
 
