@@ -1,39 +1,36 @@
-# Edge TTS
+# @ericc/edge-tts
 
-edge-tts is a package that allows you to use Microsoft Edge's online text-to-speech service from within your JS code.
-Zero dependencies and you can use it anywhere! (Browser or Node or Deno or Bun or any modern JS environment)
-Heavily inspired by [rany2/edge-tts](https://github.com/rany2/edge-tts) and [SchneeHertz/node-edge-tts](https://github.com/SchneeHertz/node-edge-tts)
+> Generate speech audio from text using Microsoft Edge's text-to-speech API.
 
-```typescript
-// Web
+[![JSR](https://jsr.io/badges/@ericc/edge-tts)](https://jsr.io/@ericc/edge-tts)
+[![JSR Score](https://jsr.io/badges/@ericc/edge-tts/score)](https://jsr.io/@ericc/edge-tts)
 
-const { audio, subtitle } = await generate({
-  text: "Hello, world!",
-  voice: "en-US-JennyNeural",
-  language: "en-US",
-});
+## Features
 
-// Create an audio element and play the generated audio
-const audioElement = new Audio(URL.createObjectURL(audio));
-audioElement.play();
+- Zero dependencies
+- Using standard web APIs. Should work in all (modern) JS environment
+- Provides subtitle/caption data
 
-// Access subtitle data
-console.log(subtitle);
+## Installation
+
+```bash
+# Deno
+deno add @ericc/edge-tts
+
+# NPM
+npx jsr add @ericc/edge-tts
+
+# Yarn
+yarn dlx jsr add @ericc/edge-tts
+
+# PNPM
+pnpm dlx jsr add @ericc/edge-tts
+
+# Bun
+bunx jsr add @ericc/edge-tts
+
 ```
 
-```typescript
-// Node.js
-const { audio, subtitle } = await generate({
-  text: "Hello, world!",
-  voice: "en-US-JennyNeural",
-  language: "en-US",
-});
+## Usage
 
-// Save the audio Blob to a file
-const fs = require("fs");
-const buffer = Buffer.from(await audio.arrayBuffer());
-fs.writeFileSync("output.mp3", buffer);
-
-// Access subtitle data
-console.log(subtitle);
-```
+Check out the example usage and docs at the [JSR page](https://jsr.io/@ericc/edge-tts).
