@@ -1,6 +1,6 @@
 {
   "name": "@ericc/edge-tts",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "exports": {
     ".": "./src/mod.ts"
   },
