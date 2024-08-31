@@ -5,7 +5,7 @@
     ".": "./src/mod.ts"
   },
   "publish": {
-    "exclude": [".vscode/"]
+    "exclude": [".vscode/", ".github/"]
   },
   "tasks": {
     "test": "deno test --allow-net tests"
