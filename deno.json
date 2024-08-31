@@ -5,9 +5,13 @@
     ".": "./src/mod.ts"
   },
   "publish": {
-    "exclude": [".vscode"]
+    "exclude": [".vscode/"]
   },
   "tasks": {
     "test": "deno test --allow-net tests"
+  },
+  "imports": {
+    "@std/expect": "jsr:@std/expect@^1.0.1",
+    "@std/testing": "jsr:@std/testing@^1.0.1"
   }
 }

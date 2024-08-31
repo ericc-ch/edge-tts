@@ -17,6 +17,8 @@ url.search = searchParams.toString();
  * @returns The websocket connection instance
  */
 export function connect(outputFormat: string) {
+  if (!outputFormat) throw new Error("Output format is required");
+
   const ws = new WebSocket(url.toString());
 
   const initialMessage = `
