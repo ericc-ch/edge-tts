@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  publish:
+  publish-jsr:
     runs-on: ubuntu-latest
 
     permissions:
