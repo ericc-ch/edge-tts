@@ -1,3 +1,5 @@
+import { v4 as randomUUID } from "uuid"
+
 import { processAudioChunk, toBlobLike } from "./lib/audio-processor"
 import { createSocket } from "./lib/connection"
 import { DEFAULT_OPTIONS } from "./lib/constants"
@@ -46,7 +48,7 @@ export async function* synthesizeStream(
   const volume = options.volume ?? DEFAULT_OPTIONS.volume
 
   const socket = await createSocket(outputFormat)
-  const requestId = globalThis.crypto.randomUUID()
+  const requestId = randomUUID()
 
   const requestString = createSSMLString({
     requestId,
